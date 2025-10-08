@@ -9,9 +9,7 @@ WORKDIR /app
 COPY . .
 FROM base AS production
 WORKDIR /app
-# Set NODE_ENV to production
-ENV NODE_ENV=production
-COPY --from=dependencies /app/node_modules ./node_modules
+
 COPY --from=build /app/ .
 
 EXPOSE 5002
